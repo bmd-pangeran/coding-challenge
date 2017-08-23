@@ -27,9 +27,9 @@ This challenge requires you to:
 
 The vertices on the graph represent Venmo users and whenever one user pays another user, an edge is formed between the two users.
 
-##Details of implementation
+## Details of implementation
 
-[Back to Table of Contents] (README.md#table-of-contents)
+[Back to Table of Contents](README.md#table-of-contents)
 
 We'd like you to implement your own version of this. However, we don't want this challenge to focus on the relatively uninteresting "DevOps" of connecting to the Venmo API. Normally, payments can be obtained through Venmo’s API, but you may assume this has already been done, and data has been written to a file named `venmo-trans.txt` in a directory called `venmo_input`.
 
@@ -61,8 +61,8 @@ As new payments come in, edges that were formed between users with payments olde
 	
 The `created_time` field can be used in lieu of a timestamp.
 
-##Building the Venmo Graph
-[Back to Table of Contents] (README.md#table-of-contents)
+## Building the Venmo Graph
+[Back to Table of Contents](README.md#table-of-contents)
 
 Here is an example of the extracted information from eight payments:
 
@@ -165,8 +165,8 @@ The rolling median degree output at the end of fourth payment is
 	
 Note that all the payments arrive in a timely order in this example, and for every incoming payment, all the old payments sit within the 60 second window from the timestamp of the latest incoming payment. Hence, no payments are evicted (we'll see an example below on how the edge eviction should be handled with time).
 
-##Maintain data within the 60-second window
-[Back to Table of Contents] (README.md#table-of-contents)
+## Maintain data within the 60-second window
+[Back to Table of Contents](README.md#table-of-contents)
 
 Now let's say that the next payment comes in and the extracted information is 
 
@@ -211,8 +211,8 @@ The list of rolling median degrees now becomes:
 	2.00
 	1.00
 
-##Dealing with payments that arrive out of time
-[Back to Table of Contents] (README.md#table-of-contents)
+## Dealing with payments that arrive out of time
+[Back to Table of Contents](README.md#table-of-contents)
 
 Payments that are out of order and fall within the 60 second window of the maximum timestamp processed, or in other words, are less than 60 seconds from the maximum timestamp being processed, will create new edges in the graph. 
 
@@ -290,16 +290,16 @@ The new median degree, calculated from {1, 1, 1, 1, 1, 1} = 1.00 and our new lis
 
 The output should be a file in the `venmo_output` directory named `output.txt` that contains the rolling median for each transaction in the file (e.g. if there are three input transactions, then there should be 3 medians), following the format above. The precision of the median should be two digits after the decimal place with truncation.
 
-##Collecting payments from Venmo API
+## Collecting payments from Venmo API
 
-[Back to Table of Contents] (README.md#table-of-contents)
+[Back to Table of Contents](README.md#table-of-contents)
 
 Ideally, the updates to the median degree of the graph would be connected to the Venmo streaming API and would add new payment to the end of `venmo-trans.txt`. However, connecting to the API has been discontinued for new users, and even if it were possible, would require more system specific "DevOps" work, which isn't the primary focus for data engineers. 
 
 Instead, you should simply assume that each new line of the text file corresponds to a new Venmo payment and design your program to handle a text file with a large number of payments. Your program should output the results to a text file named `output.txt` in the `venmo_output` directory.
 
-##Writing clean, scalable and well-tested code
-[Back to Table of Contents] (README.md#table-of-contents)
+## Writing clean, scalable and well-tested code
+[Back to Table of Contents](README.md#table-of-contents)
 
 As a data engineer, it’s important that you write clean, well-documented code that scales for large amounts of data. For this reason, it’s important to ensure that your solution works well for a huge number of payments, rather than just the simple examples above. 
 
@@ -313,8 +313,8 @@ In addition to the source code, the top-most directory of your repo must include
 
 If your solution requires additional libraries, environments, or dependencies, you must specify these in your README documentation. See the figure below for the required structure of the top-most directory in your repo, or simply clone this repo.
 
-##Repo directory structure
-[Back to Table of Contents] (README.md#table-of-contents)
+## Repo directory structure
+[Back to Table of Contents](README.md#table-of-contents)
 
 Example Repo Structure
 
@@ -342,8 +342,8 @@ Example Repo Structure
 
 The contents of `src` do not have to contain the single file called `"median_degree.java"`, you are free to include one or more files and name them as you wish.
 
-##Testing your directory structure and output format
-[Back to Table of Contents] (README.md#table-of-contents)
+## Testing your directory structure and output format
+[Back to Table of Contents](README.md#table-of-contents)
 
 To make sure that your code has the correct directory structure and the format of the output data in `output.txt` is correct, we included a test script, called `run_tests.sh` in the `insight_testsuite` folder.
 
@@ -367,7 +367,7 @@ One test has been provided as a way to check your formatting and simulate how we
 
 Your submission must pass at least the provided test in order to pass the coding challenge.
 
-#FAQ
+# FAQ
 
 Here are some common questions we've received.  If you have additional questions, please email us at cc@insightdataengineering.com and we'll answer your questions as quickly as we can.
 
